@@ -1,0 +1,236 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.7rem;
+    color: #58a6ff;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+/* ── карточки ── */
+.card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+/* ── параметры ── */
+.params-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.param-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.param-group label {
+    font-size: 0.95rem;
+    color: #c9d1d9;
+    font-weight: 600;
+}
+
+.hint {
+    font-size: 0.75rem;
+    color: #8b949e;
+    font-weight: 400;
+}
+
+.param-input {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    color: #c9d1d9;
+    padding: 9px 12px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+.param-input:focus {
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+}
+
+.params-info {
+    margin-top: 12px;
+    font-size: 0.82rem;
+    font-family: 'Courier New', monospace;
+    min-height: 22px;
+    color: #8b949e;
+    transition: color 0.3s;
+}
+
+/* ── файл ── */
+.file-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.selected-file {
+    font-size: 0.88rem;
+    color: #8b949e;
+    font-style: italic;
+}
+
+.selected-file.has-file {
+    color: #58a6ff;
+    font-style: normal;
+    font-family: 'Courier New', monospace;
+}
+
+/* ── кнопки ── */
+.btn {
+    padding: 10px 26px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+}
+
+.btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-secondary {
+    background: #21262d;
+    color: #58a6ff;
+    border: 1px solid #30363d;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #2d333b;
+    border-color: #58a6ff;
+}
+
+.actions-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.btn-encrypt {
+    flex: 1;
+    background: #1f6feb;
+    color: #fff;
+}
+
+.btn-encrypt:hover:not(:disabled) {
+    background: #388bfd;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(31, 111, 235, 0.4);
+}
+
+.btn-decrypt {
+    flex: 1;
+    background: #6e40c9;
+    color: #fff;
+}
+
+.btn-decrypt:hover:not(:disabled) {
+    background: #8957e5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(110, 64, 201, 0.4);
+}
+
+/* ── вывод ── */
+.output-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.output-card {
+    min-height: 160px;
+}
+
+.bytes-display {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    color: #58a6ff;
+    line-height: 1.7;
+    word-break: break-all;
+    max-height: 220px;
+    overflow-y: auto;
+    background: #0d1117;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.bytes-display::-webkit-scrollbar { width: 5px; }
+.bytes-display::-webkit-scrollbar-track { background: #161b22; }
+.bytes-display::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+
+/* ── статус ── */
+.status-bar {
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    min-height: 44px;
+    line-height: 1.5;
+    background: #161b22;
+    border: 1px solid #30363d;
+    color: #8b949e;
+    word-break: break-all;
+}
+
+.status-success {
+    background: #0f2a1a;
+    border-color: #2ea043;
+    color: #3fb950;
+}
+
+.status-error {
+    background: #2a0f0f;
+    border-color: #f85149;
+    color: #f85149;
+}
+
+.status-info {
+    background: #0d1f38;
+    border-color: #1f6feb;
+    color: #79c0ff;
+}
+
+/* ── адаптив ── */
+@media (max-width: 650px) {
+    .params-grid    { grid-template-columns: 1fr; }
+    .output-grid    { grid-template-columns: 1fr; }
+    .actions-row    { flex-direction: column; }
+}
